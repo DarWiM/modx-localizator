@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1-custom.1] - 2026-09-13
+
+### Added
+- Site-wide batch translation from a native resource tree with independent selection of published, unpublished, hidden, and deleted resources.
+- Cache clearing prompt after batch translation completion.
+
+### Changed
+- Lexicon translation option is enabled by default in the batch translation window.
+- Resource links and create/refresh actions are disabled in the translation tree to keep selection focused.
+- Resource and subtree selection use separate controls, with branch selection reset available from the context menu.
+- Resource and subtree selection actions are also available from the tree context menu.
+
+### Fixed
+- Google Translate and DeepL cURL integrations now validate HTTP status codes and log transport/API errors safely.
+- DeepL responses are read from the correct `translations[].text` field.
+- Branch controls are rendered with each tree node, so parent resources show them immediately, including lazy-loaded nodes.
+
 ## [1.1.1-beta] - 2026-06-16
 
 ### Fixed
