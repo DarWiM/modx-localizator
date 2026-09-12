@@ -62,6 +62,8 @@ class localizatorHomeManagerController extends modExtraManagerController
         $this->addJavascript($this->localizator->config['jsUrl'] . 'mgr/localizator.js');
         $this->addJavascript($this->localizator->config['jsUrl'] . 'mgr/misc/utils.js');
         $this->addJavascript($this->localizator->config['jsUrl'] . 'mgr/misc/combo.js');
+        // The site-translation dialog uses this MODX manager xtype.
+        $this->addJavascript($this->modx->getOption('manager_url') . 'assets/modext/widgets/resource/modx.tree.resource.simple.js');
         $this->addJavascript($this->localizator->config['jsUrl'] . 'mgr/widgets/languages.grid.js');
 
         //$this->addJavascript('/manager/assets/modext/workspace/lexicon/lexicon.grid.js');

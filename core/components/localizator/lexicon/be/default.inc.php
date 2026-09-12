@@ -25,6 +25,15 @@ $_lang['localizator_translate'] = 'Аўтаматычны пераклад';
 $_lang['localizator_translate_confirm'] = 'Вы сур\'ёза жадаеце выканаць аўтаматычны пераклад? Гэтае дзеянне можа заняць доўгі час.';
 $_lang['localizator_translate_wait'] = 'Аўтаматычны пераклад';
 $_lang['localizator_translate_wait_ext'] = 'Перакладзена...';
+$_lang['localizator_translate_processed'] = 'Апрацавана радкоў: ';
+$_lang['localizator_translate_site'] = 'Перакласці сайт';
+$_lang['localizator_translate_lexicon_after'] = 'Пасля перакладу старонак перакласці слоўнік';
+$_lang['localizator_clear_cache_confirm'] = 'Пераклад завершаны. Скінуць кэш сайта?';
+$_lang['localizator_resource'] = 'Рэсурс';
+$_lang['localizator_resource_state_unpublished'] = 'не апублікаваны';
+$_lang['localizator_resource_state_hidden'] = 'схаваны';
+$_lang['localizator_resource_state_deleted'] = 'выдалены';
+$_lang['localizator_tree_root'] = 'Рэсурсы сайта';
 $_lang['localizator_add'] = 'Дадаць пераклад';
 $_lang['localizator_error'] = 'Памылка';
 
@@ -65,3 +74,8 @@ $_lang['localizator_item_err_save'] = 'Захаванне не ўдалося';
 
 $_lang['localizator_grid_search'] = 'Пошук';
 $_lang['localizator_grid_actions'] = 'Дзеянні';
+$_lang['localizator_reset_branch'] = 'Скінуць выбар галіны да значэння па змаўчанні';
+$_lang['localizator_select_resource'] = 'Выбраць рэсурс';
+$_lang['localizator_select_branch'] = 'Выбраць усё паддрэва';
+$_lang['localizator_deselect_resource'] = 'Зняць выбар рэсурсу';
+$_lang['localizator_deselect_branch'] = 'Зняць выбар паддрэва';

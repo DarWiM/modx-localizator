@@ -25,6 +25,14 @@ $_lang['localizator_translate_confirm'] = 'Вы действительно хо�
 $_lang['localizator_translate_wait'] = 'Выполняется автоматический перевод';
 $_lang['localizator_translate_wait_ext'] = 'Перевод...';
 $_lang['localizator_translate_processed'] = 'Обработано строк: ';
+$_lang['localizator_translate_site'] = 'Перевести сайт';
+$_lang['localizator_translate_lexicon_after'] = 'После перевода страниц перевести словарь';
+$_lang['localizator_clear_cache_confirm'] = 'Перевод завершён. Сбросить кеш сайта?';
+$_lang['localizator_resource'] = 'Ресурс';
+$_lang['localizator_resource_state_unpublished'] = 'не опубликован';
+$_lang['localizator_resource_state_hidden'] = 'скрыт';
+$_lang['localizator_resource_state_deleted'] = 'удалён';
+$_lang['localizator_tree_root'] = 'Ресурсы сайта';
 $_lang['localizator_add'] = 'Добавить перевод';
 $_lang['localizator_error'] = 'Ошибка';
 
@@ -75,3 +83,8 @@ $_lang['localizator_content_err_ae'] = 'Локализация ресурса у
 
 $_lang['tv_localizator_enabled'] = 'TV доступно в локализациях';
 $_lang['tv_localizator_enabled_msg'] = 'Дополнительное поле доступно для редактирования в локализациях';
+$_lang['localizator_reset_branch'] = 'Сбросить выбор ветки к умолчанию';
+$_lang['localizator_select_resource'] = 'Выбрать ресурс';
+$_lang['localizator_select_branch'] = 'Выбрать всё поддерево';
+$_lang['localizator_deselect_resource'] = 'Снять выбор ресурса';
+$_lang['localizator_deselect_branch'] = 'Снять выбор поддерева';

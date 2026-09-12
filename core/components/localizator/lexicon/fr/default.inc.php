@@ -24,6 +24,15 @@ $_lang['localizator_translate'] = 'Traduction automatique';
 $_lang['localizator_translate_confirm'] = 'Voulez-vous vraiment faire une traduction automatique ? Cette opération peut prendre un certain temps.';
 $_lang['localizator_translate_wait'] = 'Traduction automatique';
 $_lang['localizator_translate_wait_ext'] = 'Langue cible...';
+$_lang['localizator_translate_processed'] = 'Lignes traitées: ';
+$_lang['localizator_translate_site'] = 'Traduire le site';
+$_lang['localizator_translate_lexicon_after'] = 'Traduire le dictionnaire après les pages';
+$_lang['localizator_clear_cache_confirm'] = 'Traduction terminée. Vider le cache du site ?';
+$_lang['localizator_resource'] = 'Ressource';
+$_lang['localizator_resource_state_unpublished'] = 'non publié';
+$_lang['localizator_resource_state_hidden'] = 'caché';
+$_lang['localizator_resource_state_deleted'] = 'supprimé';
+$_lang['localizator_tree_root'] = 'Ressources du site';
 $_lang['localizator_add'] = 'Ajouter une traduction';
 $_lang['localizator_error'] = 'Erreur';
 
@@ -69,3 +78,8 @@ $_lang['localizator_content_err_ae'] = 'La localisation de la ressource est déj
 
 $_lang['tv_localizator_enabled'] = 'TV est disponible dans les localisations';
 $_lang['tv_localizator_enabled_msg'] = 'TV est disponible pour modification dans les localisations.';
+$_lang['localizator_reset_branch'] = 'Réinitialiser la sélection de la branche';
+$_lang['localizator_select_resource'] = 'Sélectionner la ressource';
+$_lang['localizator_select_branch'] = 'Sélectionner toute la branche';
+$_lang['localizator_deselect_resource'] = 'Désélectionner la ressource';
+$_lang['localizator_deselect_branch'] = 'Désélectionner la branche';

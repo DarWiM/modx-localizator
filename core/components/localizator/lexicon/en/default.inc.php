@@ -25,6 +25,14 @@ $_lang['localizator_translate_confirm'] = 'Do you really want to perform automat
 $_lang['localizator_translate_wait'] = 'Automatic translation';
 $_lang['localizator_translate_wait_ext'] = 'Translated...';
 $_lang['localizator_translate_processed'] = 'Rows processed: ';
+$_lang['localizator_translate_site'] = 'Translate site';
+$_lang['localizator_translate_lexicon_after'] = 'Translate the lexicon after pages';
+$_lang['localizator_clear_cache_confirm'] = 'Translation is complete. Clear the site cache?';
+$_lang['localizator_resource'] = 'Resource';
+$_lang['localizator_resource_state_unpublished'] = 'unpublished';
+$_lang['localizator_resource_state_hidden'] = 'hidden';
+$_lang['localizator_resource_state_deleted'] = 'deleted';
+$_lang['localizator_tree_root'] = 'Site resources';
 $_lang['localizator_add'] = 'Add a translation';
 $_lang['localizator_error'] = 'Error';
 
@@ -75,3 +83,8 @@ $_lang['localizator_content_err_ae'] = 'Localization of the resource is already 
 
 $_lang['tv_localizator_enabled'] = 'TV is available in localizations';
 $_lang['tv_localizator_enabled_msg'] = 'Template Var is available for editing in localizations.';
+$_lang['localizator_reset_branch'] = 'Reset branch selection to default';
+$_lang['localizator_select_resource'] = 'Select resource';
+$_lang['localizator_select_branch'] = 'Select entire subtree';
+$_lang['localizator_deselect_resource'] = 'Deselect resource';
+$_lang['localizator_deselect_branch'] = 'Deselect subtree';

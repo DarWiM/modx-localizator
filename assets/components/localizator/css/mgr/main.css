@@ -25,3 +25,6 @@ ul.localizator-row-actions .actions-menu:after { content: " \f107"; }
 .x-field-search-clear:before { content: '\f00d' !important; }
 .x-field-search-go { right: 31px !important; border-radius: 0 !important; }
 .x-field-search-go:before { content: '\f002' !important; }
+/* Translation tree */
+.localizator-tree-branch-checkbox { margin-left: 3px; opacity: .7; }
+.localizator-tree-branch-checkbox:hover { opacity: 1; }
