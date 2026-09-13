@@ -5,6 +5,7 @@ class Google
 
 	/** @var modX $modx */
 	public $modx;
+	public $lastError = '';
 
 
 	/**
@@ -26,14 +27,16 @@ class Google
 	 * @param string $from
 	 * @param string $to
 	 *
-	 * @return string
+	 * @return string|false
 	 */
 	public function translate($text, $from, $to)
 	{
+		$this->lastError = '';
 
 		if (empty($this->config['key'])) {
-			$this->modx->log(1, 'localizator: ' . $this->modx->lexicon('localizator_item_err_google_key'));
-			return '';
+			$this->lastError = $this->modx->lexicon('localizator_item_err_google_key');
+			$this->modx->log(1, 'localizator: ' . $this->lastError);
+			return false;
 		}
 
 		if (!$text) return '';
@@ -54,11 +57,13 @@ class Google
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		$response = curl_exec($ch);
 		$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+		$curlError = curl_error($ch);
 		curl_close($ch);
 
 		if ($response === false) {
-			$this->modx->log(1, 'localizator: google translate curl error');
-			return '';
+			$this->lastError = 'google translate curl error' . ($curlError ? ': ' . $curlError : '');
+			$this->modx->log(1, 'localizator: ' . $this->lastError);
+			return false;
 		}
 
 		$response = json_decode($response, true);
@@ -66,7 +71,9 @@ class Google
 			$output = $response['data']['translations'][0]['translatedText'];
 		} else {
 			$msg = isset($response['error']['errors'][0]['message']) ? $response['error']['errors'][0]['message'] : ('HTTP ' . $httpCode);
-			$this->modx->log(1, 'localizator: google translate error - ' . $msg);
+			$this->lastError = 'google translate error - ' . $msg;
+			$this->modx->log(1, 'localizator: ' . $this->lastError);
+			return false;
 		}
 
 		return $output;

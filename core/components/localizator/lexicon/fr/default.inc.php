@@ -70,6 +70,7 @@ $_lang['localizator_item_err_nf'] = 'Enregistrement non trouvé';
 $_lang['localizator_item_err_ns'] = 'L’entrée n’est pas spécifiée';
 $_lang['localizator_item_err_remove'] = 'Suppression de l’erreur';
 $_lang['localizator_item_err_save'] = 'Une erreur s’est produite lors de l’enregistrement';
+$_lang['localizator_item_err_translate'] = 'La traduction automatique a échoué';
 
 $_lang['localizator_grid_search'] = 'Rechercher';
 $_lang['localizator_grid_actions'] = 'Actions';

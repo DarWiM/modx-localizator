@@ -5,6 +5,7 @@ class DeepL
 
     /** @var modX $modx */
     public $modx;
+    public $lastError = '';
 
 
     /**
@@ -37,14 +38,16 @@ class DeepL
      * @param string $from
      * @param string $to
      *
-     * @return string
+     * @return string|false
      */
     public function translate($text, $from, $to)
     {
+        $this->lastError = '';
 
         if (empty($this->config['key'])) {
-            $this->modx->log(1, 'localizator: ' . $this->modx->lexicon('localizator_item_err_deepl_key'));
-            return '';
+            $this->lastError = $this->modx->lexicon('localizator_item_err_deepl_key');
+            $this->modx->log(1, 'localizator: ' . $this->lastError);
+            return false;
         }
 
         if (!$text) return '';
@@ -67,11 +70,13 @@ class DeepL
         ));
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $curlError = curl_error($ch);
         curl_close($ch);
 
         if ($response === false) {
-            $this->modx->log(1, 'localizator: Deepl translate curl error');
-            return '';
+            $this->lastError = 'Deepl translate curl error' . ($curlError ? ': ' . $curlError : '');
+            $this->modx->log(1, 'localizator: ' . $this->lastError);
+            return false;
         }
 
         $response = json_decode($response, true);
@@ -80,7 +85,9 @@ class DeepL
             $output = $response['translations'][0]['text'];
         } else {
             $msg = isset($response['message']) ? $response['message'] : ('HTTP ' . $httpCode);
-            $this->modx->log(1, 'localizator: Deepl translate error - ' . $msg);
+            $this->lastError = 'Deepl translate error - ' . $msg;
+            $this->modx->log(1, 'localizator: ' . $this->lastError);
+            return false;
         }
 
         return $output;

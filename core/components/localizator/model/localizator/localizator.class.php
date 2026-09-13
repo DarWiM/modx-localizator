@@ -1,5 +1,9 @@
 <?php
 
+class localizatorTranslationException extends Exception
+{
+}
+
 class localizator
 {
     /** @var modX $modx */
@@ -61,7 +65,15 @@ class localizator
      */
     public function translate($text, $from, $to)
     {
-        return $this->translator->translate($text, $from, $to);
+        $translation = $this->translator->translate($text, $from, $to);
+        if ($translation === false || is_array($translation)) {
+            $message = !empty($this->translator->lastError)
+                ? $this->translator->lastError
+                : $this->modx->lexicon('localizator_item_err_translate');
+            throw new localizatorTranslationException($message);
+        }
+
+        return $translation;
     }
 
 

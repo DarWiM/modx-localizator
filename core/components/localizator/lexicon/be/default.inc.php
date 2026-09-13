@@ -71,6 +71,7 @@ $_lang['localizator_item_err_nf'] = 'Запіс не знойдзена';
 $_lang['localizator_item_err_ns'] = 'Не паказан запіс';
 $_lang['localizator_item_err_remove'] = 'Не паказан запіс';
 $_lang['localizator_item_err_save'] = 'Захаванне не ўдалося';
+$_lang['localizator_item_err_translate'] = 'Аўтаматычны пераклад не ўдаўся';
 
 $_lang['localizator_grid_search'] = 'Пошук';
 $_lang['localizator_grid_actions'] = 'Дзеянні';

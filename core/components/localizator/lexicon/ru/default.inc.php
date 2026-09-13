@@ -75,6 +75,7 @@ $_lang['localizator_item_err_default_language'] = 'Не указана опци�
 $_lang['localizator_item_err_yandex_key'] = 'Ошибка при переводе - не указан Yandex api key в системных настройках';
 $_lang['localizator_item_err_google_key'] = 'Ошибка при переводе - не указан Google api key в системных настройках';
 $_lang['localizator_item_err_deepl_key'] = 'Ошибка при переводе - не указан Deepl api key в системных настройках';
+$_lang['localizator_item_err_translate'] = 'Ошибка автоматического перевода';
 
 $_lang['localizator_grid_search'] = 'Поиск';
 $_lang['localizator_grid_actions'] = 'Действия';

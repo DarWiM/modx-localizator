@@ -75,6 +75,7 @@ $_lang['localizator_item_err_default_language'] = 'Option localizator_default_la
 $_lang['localizator_item_err_yandex_key'] = 'Translation error - Yandex api key not specified in system settings';
 $_lang['localizator_item_err_google_key'] = 'Translation error - Google api key not specified in system settings';
 $_lang['localizator_item_err_deepl_key'] = 'Translation error - Deepl api key not specified in system settings';
+$_lang['localizator_item_err_translate'] = 'Automatic translation failed';
 
 $_lang['localizator_grid_search'] = 'Search';
 $_lang['localizator_grid_actions'] = 'Actions';

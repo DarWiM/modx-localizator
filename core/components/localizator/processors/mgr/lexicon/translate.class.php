@@ -5,6 +5,15 @@ class localizatorLexiconTranslateProcessor extends modProcessor
 
 	public function process()
 	{
+		try {
+			return $this->processTranslation();
+		} catch (localizatorTranslationException $e) {
+			return $this->failure($e->getMessage());
+		}
+	}
+
+	protected function processTranslation()
+	{
 		$this->localizator = $this->modx->getService('localizator');
 
 		if (!$default_language = $this->modx->getOption('localizator_default_language')) {

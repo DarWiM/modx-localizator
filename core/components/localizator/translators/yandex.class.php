@@ -5,6 +5,7 @@ class Yandex
 
 	/** @var modX $modx */
 	public $modx;
+	public $lastError = '';
 
 
 	/**
@@ -26,13 +27,16 @@ class Yandex
 	 * @param string $from
 	 * @param string $to
 	 *
-	 * @return string
+	 * @return string|false
 	 */
 	public function translate($text, $from, $to)
 	{
+		$this->lastError = '';
 
 		if (!$this->config['key']) {
-			return $this->modx->error->failure($this->modx->lexicon('localizator_item_err_yandex_key'));
+			$this->lastError = $this->modx->lexicon('localizator_item_err_yandex_key');
+			$this->modx->log(1, 'localizator: ' . $this->lastError);
+			return false;
 		}
 
 		if (!$text) return;
@@ -55,11 +59,24 @@ class Yandex
 			curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data, '', '&'));
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			$response = curl_exec($ch);
+			$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+			$curlError = curl_error($ch);
+			curl_close($ch);
+
+			if ($response === false) {
+				$this->lastError = 'yandex translate curl error' . ($curlError ? ': ' . $curlError : '');
+				$this->modx->log(1, 'localizator: ' . $this->lastError);
+				return false;
+			}
+
 			$response = json_decode($response, true);
-			if ($response['code'] == 200) {
+			if ($httpCode == 200 && isset($response['code']) && $response['code'] == 200 && isset($response['text'])) {
 				$output .= implode('', $response['text']);
 			} else {
-				$this->modx->log(1, 'localizator: yandex error - ' . $response['code'] . ', see https://tech.yandex.ru/translate/doc/dg/reference/translate-docpage/');
+				$msg = isset($response['message']) ? $response['message'] : ('HTTP ' . $httpCode);
+				$this->lastError = 'yandex error - ' . $msg;
+				$this->modx->log(1, 'localizator: ' . $this->lastError);
+				return false;
 			}
 		}
 

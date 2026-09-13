@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Google Translate and DeepL cURL integrations now validate HTTP status codes and log transport/API errors safely.
 - DeepL responses are read from the correct `translations[].text` field.
+- API errors from translation transports now stop resource and lexicon batch processing and are shown to the user.
 - Branch controls are rendered with each tree node, so parent resources show them immediately, including lazy-loaded nodes.
 
 ## [1.1.1-beta] - 2026-06-16
