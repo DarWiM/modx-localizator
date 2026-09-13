@@ -22,6 +22,17 @@ class DeepL
 
 
     /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return substr((string) $this->config['key'], -3) === ':fx'
+            ? 'https://api-free.deepl.com'
+            : 'https://api.deepl.com';
+    }
+
+
+    /**
      * @param string $text
      * @param string $from
      * @param string $to
@@ -44,13 +55,16 @@ class DeepL
             'text'        => $text,
         );
 
-        $ch = curl_init('https://api.deepl.com/v2/translate?auth_key=' . $this->config['key']);
+        $ch = curl_init($this->getEndpoint() . '/v2/translate');
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data, '', '&'));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Authorization: DeepL-Auth-Key ' . $this->config['key'],
+            'Content-Type: application/x-www-form-urlencoded',
+        ));
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
